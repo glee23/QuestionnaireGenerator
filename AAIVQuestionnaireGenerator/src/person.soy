@@ -1,0 +1,47 @@
+{namespace examples.person}
+/**
+ * Creates the html for a person.
+ * 
+ * @param name
+ * @param year
+ * @param major
+ * @param hometown
+ * @param url
+ * @param dorm
+ * @param questionAnswerMap
+ */
+{template .person}
+  <html>
+    <head>
+        <title>{$name}</title>
+        <link rel="shortcut icon" type="image/x-icon" href="http://aaivuw.com/favicon.ico">
+        <link rel="stylesheet" type="text/css" href="person.css">
+        <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,300' rel='stylesheet' type='text/css' />
+        <link href='http://fonts.googleapis.com/css?family=Lato:400,300' rel='stylesheet' type='text/css' />
+    	<script type="text/javascript" src="bg.js"></script>
+    </head>
+    <body style="line-height: 1.5;">
+    	<div id="bg">
+            <a href="{$dorm}.html">
+                <img id="logo" style="float: right;max-height: 120px;width: 600px;margin-bottom: 20px; margin-left: calc(100% - 600px);"src="http://static.squarespace.com/static/522aafbde4b0832d81b3f31e/t/522ec0f5e4b04fc7eb1029c9/1388032673496/?format=1500w" />
+            </a>
+            <div id="thumb" class="thumb" style="background-image: url('{$url}'); ">
+	        	<div class="name">
+	            	{$name}
+	            </div>
+        	</div>
+            <div id="filler">&nbsp;&nbsp;</div>
+            <h2>{$year}{sp}// {$major}{sp}// {$hometown}</h2>
+        </div>
+        <div style="padding-top: 48px; min-height: 120px;margin: auto;width: 40%;min-width: 66%;max-width: 1000px;left: 25%;font-size: 24px;border-radius: 36px;overflow: auto;padding-bottom: 36px;text-align: center;">
+        
+        	{foreach $question in keys($questionAnswerMap)}
+        		<h3>{$question}</h3>
+        		<h4>{$questionAnswerMap[$question]}</h4>
+        	{/foreach}
+        
+    	</div>
+    </body>
+</html>
+{/template}
+
